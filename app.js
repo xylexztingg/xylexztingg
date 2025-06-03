@@ -29,8 +29,19 @@ class App{
 		this.scene = new THREE.Scene();
         this.scene.add( this.dolly );
         
-		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
-		this.scene.add(ambient);
+        // Ambient red-tinted light
+        const ambient = new THREE.HemisphereLight(0xff0000, 0x220000, 0.3);
+        this.scene.add(ambient);
+
+        // Add a red point light for creepy mood
+        const pointLight = new THREE.PointLight(0xff3300, 1.5, 15);
+        pointLight.position.set(0, 2, 2); // adjust as needed
+        this.scene.add(pointLight);
+
+        // Optional: give the point light a glow effect
+        const sphereSize = 0.2;
+        const pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize);
+        this.scene.add(pointLightHelper);
 
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setPixelRatio( window.devicePixelRatio );
