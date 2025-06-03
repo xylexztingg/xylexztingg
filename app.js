@@ -30,7 +30,7 @@ class App{
         this.scene.add( this.dolly );
         
         // Ambient red-tinted light
-        const ambient = new THREE.HemisphereLight(0xff0000, 0x220000, 0.3);
+        const ambient = new THREE.HemisphereLight(0xff3300, 0xaa0000, 0.7);
         this.scene.add(ambient);
 
         // Add a red point light for creepy mood
